@@ -10,7 +10,7 @@ if [ $env = "production" ]
 then
     echo $(date '+%F %T.%3N %Z') "[reactjs] INFO: running production environment"
     echo $(date '+%F %T.%3N %Z') "[reactjs] INFO: serve application"
-    serve -s build
+    serve -s build -l 3000
 else
     echo $(date '+%F %T.%3N %Z') "[reactjs] INFO: running development environment"
     npm run start
