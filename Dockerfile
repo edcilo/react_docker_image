@@ -14,6 +14,6 @@ RUN npm run build
 RUN chmod a+rx ./start.sh
 USER node
 
-EXPOSE 3000
+EXPOSE 9000
 
 CMD ./start.sh
