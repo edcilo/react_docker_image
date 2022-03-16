@@ -1,10 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
 import React, {Component} from "react";
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+    Switch
+} from "react-router-dom";
 import axios from 'axios';
 
 
-class Test extends React.Component {
+class Test extends Component {
     async getUser() {
         const dev = "https://msdev.graviti.mx";
         const stg = "https://msstg.graviti.mx";
@@ -31,26 +37,52 @@ class Test extends React.Component {
     }
 }
 
+function Home() {
+    return (
+        <div className="home">
+            <p>Home react</p>
+        </div>
+    );
+}
+
+function About() {
+    return (
+        <div className="about">
+            <p>About react</p>
+        </div>
+    );
+}
+
 
 function App() {
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <Test />
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
-        </div>
+        <Router basename="/front/v1/react">
+            <div className="App">
+                <header className="App-header">
+                    <img src={logo} className="App-logo" alt="logo" />
+
+                    <Test />
+
+                    <ul>
+                        <li>
+                            <Link to="/">Home</Link>
+                        </li>
+                        <li>
+                            <Link to="/about">About</Link>
+                        </li>
+                    </ul>
+
+                    <Switch>
+                        <Route path="/about">
+                            <About />
+                        </Route>
+                        <Route path="/">
+                            <Home />
+                        </Route>
+                    </Switch>
+                </header>
+            </div>
+        </Router>
     );
 }
 

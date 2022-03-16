@@ -4,7 +4,7 @@ const app = express();
 
 app.use('/front/v1/react', express.static(path.join(__dirname, 'build')));
 
-app.get('/front/v1/react', function (req, res) {
+app.get('/front/v1/react/*', function (req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
