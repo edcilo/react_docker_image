@@ -32,7 +32,7 @@ class Test extends Component {
 
     render() {
         return (
-            <p>Hola mundo</p>
+            <p>v1.0.18</p>
         );
     }
 }
